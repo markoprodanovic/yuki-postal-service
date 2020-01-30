@@ -1,0 +1,33 @@
+.container {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+}
+
+table {
+    width: 80%;
+    border-spacing: 0;
+    border: 1px solid black;
+}
+
+th, td {
+    margin: 0;
+    padding: 0.5rem;
+    border-bottom: 1px solid rgb(36, 36, 36);
+    border-right: 1px solid rgb(36, 36, 36);
+}
+
+th {
+    background-color: #ddd;
+}
+
+@media screen and (max-width: 600px) {
+    table {
+        width: 90%;
+    }
+    table * {
+        font-size: 0.8rem;
+    }
+}

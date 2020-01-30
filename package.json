@@ -1,0 +1,21 @@
+{
+  "name": "yuki_postal_service",
+  "version": "1.0.0",
+  "description": "Website for Yuki's YPS album rollout",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "Marko Prodanovic",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "concurrently": "^5.1.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
