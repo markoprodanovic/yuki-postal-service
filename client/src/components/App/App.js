@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 
 // components
-import TrackingInput from '../TrackingInput/TrackingInput';
 import TableFeature from '../TableFeature/TableFeature';
 import Footer from '../Footer/Footer';
 
@@ -12,8 +11,10 @@ import './App.css';
 const App = () => {
   return (
     <div className="App">
-      <img className="logo" src="logo.png" />
-      <TrackingInput />
+      <div className="container">
+        <img className="logo" src="logo.png" />
+        <img className="live" src="https://media.giphy.com/media/d7SnWNs1hyW2hNrFRn/giphy.gif" />
+      </div>
       <TableFeature />
       <Footer />
     </div>

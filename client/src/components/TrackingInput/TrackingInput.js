@@ -3,11 +3,13 @@ import classes from './TrackingInput.module.css';
 
 const trackingInput = props => {
     return (
-        <form className={classes.trackingInput}>
-            <label for="name">Tracking Number </label>
-            <input type="text" value="RX590686915DE"></input>
-            <button>Go</button>
-        </form>
+        <div className={classes.trackingInput}>
+            <form className={classes.trackingInput}>
+                <label htmlFor="name">Tracking Number: </label>
+                <input type="text" value="BF01242020CA"></input>
+                <button onClick={props.clicked}>Track</button>
+            </form>
+        </div>
     );
 }
 

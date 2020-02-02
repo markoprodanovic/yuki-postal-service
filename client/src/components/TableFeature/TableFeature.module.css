@@ -1,33 +1,51 @@
 .container {
-    padding: 3rem;
+    padding: 1.5rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: left;
+    width: 80%;
 }
 
 table {
-    width: 80%;
+    width: 100%;
     border-spacing: 0;
-    border: 1px solid black;
+    font-size: 0.8rem;
 }
 
 th, td {
     margin: 0;
     padding: 0.5rem;
-    border-bottom: 1px solid rgb(36, 36, 36);
-    border-right: 1px solid rgb(36, 36, 36);
+    border-bottom: 2px solid #ddd;
+    border-right: 4px solid #FFF;
 }
 
 th {
     background-color: #ddd;
 }
 
+.timestampButton {
+    border: none;
+    padding: 0;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: 600;
+    color: rgb(74, 83, 164);
+}
+
+.timestampButton:hover {
+    color: rgb(114, 121, 186);
+}
+
+.timestampButton:focus {
+    outline: none;
+}
+
 @media screen and (max-width: 600px) {
-    table {
+    container {
         width: 90%;
     }
-    table * {
+    conta * {
         font-size: 0.8rem;
     }
 }
