@@ -7,25 +7,49 @@ import classes from './TableFeature.module.css';
 
 class TableFeature extends Component {
     state = {
-        lastClickedId: -1,
-        sound: new Howl({
-            src: ['NKOW.wav']
+        lastClickedId: null,
+        sounds: [
+            '/audio/BE_FREE_YPS.m4a',
+            '/audio/DARLING_YPS.m4a',
+            '/audio/DRAMA_QUEEN_YPS.m4a',
+            '/audio/MASK_OFF_YPS.m4a',
+            '/audio/MET_GALA_YPS.m4a',
+            '/audio/NEW_KIND_OF_WAR_YPS.m4a',
+            '/audio/OK_BABY_YPS.m4a',
+            '/audio/ON_THE_LAM_YPS.m4a',
+            '/audio/SICTRN_YPS.m4a',
+            '/audio/TAPESTRY_YPS.m4a'
+        ],
+        samples: []
+    }
+
+    componentWillMount = () => {
+        this.state.sounds.forEach((path) => {
+            const sample = new Howl({ src: [path] });
+            this.state.samples.push(sample)
         })
     }
 
     timestampClickHandler = (id) => {
+        const lastId = this.state.lastClickedId;
+        console.log(`id: ${id}`);
+        console.log(`last: ${lastId}`);
 
-        if (this.state.sound.playing()) {
-            this.state.sound.stop();
-
-            if (id != this.state.lastClickedId) {
-                // play the new sound
-                this.state.sound.play();
-                this.setState({ lastClickedId: id });
-            }
-        } else {
-            this.state.sound.play();
+        if (lastId === id) {
+            this.togglePlay(this.state.samples[lastId]);
+            return;
         }
+
+        if (lastId) {
+            this.state.samples[lastId].stop();
+        }
+
+        this.setState({ lastClickedId: id });
+        this.state.samples[id].play();
+    }
+
+    togglePlay(sound) {
+        sound.playing() ? sound.stop() : sound.play();
     }
 
     render() {

@@ -1,6 +1,10 @@
 const express = require('express');
-
+const fs = require('fs');
 const app = express();
+
+
+
+app.use('/audio', express.static(__dirname + '/audio'));
 
 app.get('/api/customers', (req, res) => {
     const customers = [
