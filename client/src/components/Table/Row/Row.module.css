@@ -1,0 +1,25 @@
+.timestampButton {
+    border: none;
+    padding: 0;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: 600;
+    color: rgb(74, 83, 164);
+}
+
+.timestampButton:hover {
+    color: rgb(114, 121, 186);
+}
+
+.timestampButton:focus {
+    outline: none;
+}
+
+@media screen and (max-width: 600px) {
+    container {
+        width: 90%;
+    }
+    container * {
+        font-size: 0.8rem;
+    }
+}

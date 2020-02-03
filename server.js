@@ -1,19 +1,34 @@
+/*
+server.js
+author: Marko Prodanovic
+copyright: Marko Prodanovic, Yuki Postal Service, 2020
+*/
+
+// const updateScheduler = require('./updateScheduler')
+const updateScheduler = require('./updateScheduler.js');
 const express = require('express');
-const fs = require('fs');
 const app = express();
 
+// JSON
+const updates = require('./updates.json');
+const posts = require('./posts.json');
 
 
-app.use('/audio', express.static(__dirname + '/audio'));
+// SCHEDULE UPDATES
+const scheduler = new updateScheduler(updates);
+let j = scheduler.schedule();
 
-app.get('/api/customers', (req, res) => {
-    const customers = [
-        { id: 1, firstName: 'Marko', lastName: 'Prodanovic' },
-        { id: 2, firstName: 'Hugo', lastName: 'Chan' },
-        { id: 3, firstName: 'Seungjin', lastName: 'Kim' }
-    ];
+testMessage = {
+    "response_type": "TEST",
+    "scheduled": j
+}
 
-    res.json(customers);
+app.get('/api/test', (req, res) => {
+    res.json(testMessage);
+});
+
+app.get('/api/posts', (req, res) => {
+    res.json(posts)
 });
 
 const port = 5000;
