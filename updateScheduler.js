@@ -12,7 +12,7 @@ module.exports = class updateScheduler {
             const date = new Date(update.update_time);
             const job = () => {
                 const oldPath = `./vault/${update.audio}`;
-                const newPath = `./client/public/audio/${update.audio}`;
+                const newPath = `./client/build/public/audio/${update.audio}`;
 
                 fs.rename(oldPath, newPath, (err) => {
                     if (err) {

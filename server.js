@@ -7,7 +7,10 @@ copyright: Marko Prodanovic, Yuki Postal Service, 2020
 // const updateScheduler = require('./updateScheduler')
 const updateScheduler = require('./updateScheduler.js');
 const express = require('express');
+const path = require('path');
 const app = express();
+
+const root = require('path').join(__dirname, 'client', 'build')
 
 // JSON
 const updates = require('./updates.json');
@@ -23,16 +26,18 @@ testMessage = {
     "scheduled": j
 }
 
-app.get('/api/test', (req, res) => {
-    res.json(testMessage);
-});
+app.use(express.static(root));
+
+// app.get('/api/test', (req, res) => {
+//     res.json(testMessage);
+// });
 
 app.get('/api/posts', (req, res) => {
     res.json(posts)
 });
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + '/client/build/index.html'));
+    res.sendFile('index.html', { root });
 });
 
 const port = process.env.PORT || 5000;
