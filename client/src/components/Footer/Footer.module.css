@@ -25,6 +25,10 @@ a {
     color: rgb(98,110,213);
 }
 
+a:hover {
+    color: rgb(161, 166, 223)
+}
+
 p {
     margin: 0;
     /* padding-top: 0.8rem; */

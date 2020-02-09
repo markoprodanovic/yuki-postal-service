@@ -1,11 +1,15 @@
 import React from 'react';
 
 import classes from './Header.module.css';
+import windowSize from 'react-window-size';
 
 const header = (props) => {
-    const date = props.update_time.substring(0, props.update_time.length - 8);
+    let date = props.update_time.substring(0, props.update_time.length - 8);
+    if (props.windowWidth < 800) {
+        date = props.short_date
+    }
     return (
-        <thead>
+        <thead className={classes.header}>
             <tr>
                 <th colSpan='2'>{date}</th>
                 <th>Location</th>
@@ -16,4 +20,4 @@ const header = (props) => {
     );
 }
 
-export default header;
+export default windowSize(header);

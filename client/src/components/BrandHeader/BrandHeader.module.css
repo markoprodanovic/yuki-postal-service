@@ -1,0 +1,17 @@
+.brandHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+.logo {
+    margin-top: 2rem;
+    height: 30vmin;
+    max-height: 200px;
+    pointer-events: none;
+}
+  
+.live {
+    height: 3rem;
+}
