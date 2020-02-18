@@ -18,9 +18,9 @@ table {
     width: 100%;
     border-spacing: 0;
     background: #ffffff;
-    -webkit-box-shadow: 0px 0px 24px 0px rgba(186,186,186,0.53);
+    /* -webkit-box-shadow: 0px 0px 24px 0px rgba(186,186,186,0.53);
     -moz-box-shadow: 0px 0px 24px 0px rgba(186,186,186,0.53);
-    box-shadow: 0px 0px 24px 0px rgba(186,186,186,0.53);
+    box-shadow: 0px 0px 24px 0px rgba(186,186,186,0.53); */
 }
 
 tbody:not(:first-child) {
@@ -40,7 +40,14 @@ th, td {
     margin: 0;
     padding: 0.5rem;
     /* border-bottom: 2px solid #ddd; */
-    /* border-right: 4px solid #FFF; */
+}
+
+td:not(:last-child):not(:first-child) {
+    border-right: 4px solid rgb(240,241,251);
+}
+
+th:not(:last-child) {
+    border-right: 4px solid rgb(240,241,251);
 }
 
 

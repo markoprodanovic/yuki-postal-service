@@ -4,7 +4,7 @@
     padding: 0;
     cursor: pointer;
     font-weight: 700;
-    font-size: 1.05em;
+    font-size: 0.9em;
     color: rgb(67, 74, 145);
 }
 
@@ -38,7 +38,7 @@
 }
 
 .row {
-    font-size: 0.8em;
+    font-size: 0.9em;
 }
 
 @media screen and (max-width: 600px) {
@@ -50,5 +50,9 @@
     .playingIcon {
         margin-left: 0;
         padding-top: 0.5em;
+    }
+
+    .row {
+        font-size: 0.8em;
     }
 }
