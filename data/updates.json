@@ -1,0 +1,22 @@
+[
+    {
+        "id": 4,
+        "date": "Wednesday, February 26, 2020",
+        "short_date": "Wed, Feb 26",
+        "updates": [
+            {
+                "_id": {
+                    "$oid": "5968dd23fc13ae04d9000008"
+                },
+                "update_number": 8,
+                "update_time": "Wednesday, February 26, 2020, 02:15",
+                "short_date": "Wed, Feb 26",
+                "message": "Processed at RICHMOND - BC",
+                "location": "VANCOUVER - CANADA",
+                "time": "15:22",
+                "description": "ALBUM-1030YBFLPH-TEST",
+                "audio": "SICTRN_YPS.m4a"
+            }
+        ]
+    }
+]

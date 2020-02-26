@@ -4,8 +4,14 @@ import classes from './Footer.module.css';
 const footer = props => {
     return (
         <div className={classes.footer}>
-            <p className={classes.copyright}>The Doghouse 2020</p>
-            <p className={classes.credit}>made by <a href="https://www.instagram.com/yukithedogman/?hl=en" target="_blank">yuki</a> and <a href="https://www.instagram.com/markoprodanovic/?hl=en" target="_blank">marko</a></p>
+            <div className={classes.credit}>
+                <p>
+                    conceptualized by
+                </p>
+                <p>
+                    <a href="https://www.instagram.com/yukithedogman/?hl=en" target="_blank">YUKI</a> and <a href="https://www.instagram.com/markoprodanovic/?hl=en" target="_blank">MARKO</a>
+                </p>
+            </div>
         </div>
     );
 }

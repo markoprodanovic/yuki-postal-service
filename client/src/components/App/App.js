@@ -8,7 +8,6 @@ import BrandHeader from '../BrandHeader/BrandHeader';
 import Footer from '../Footer/Footer';
 import Table from '../Table/Table';
 
-
 // styles
 import './App.css';
 
@@ -37,28 +36,28 @@ class App extends Component {
     const posts = await response.json();
     this.setState({ posts: posts });
 
-    this.state.posts.forEach((post) => {
-      const path = `/audio/${post.audio}`;
+    this.state.posts.forEach((post) => post.updates.forEach((update) => {
+      const path = `/audio/${update.audio}`
       const sample = new Howl({
         src: [path],
         onplay: () => {
           const updatedPlayingList = this.state.playing;
-          updatedPlayingList[post.update_number] = true;
+          updatedPlayingList[update.update_number] = true;
           this.setState({ disabled: false, playing: updatedPlayingList });
         },
         onend: () => {
           const updatedPlayingList = this.state.playing;
-          updatedPlayingList[post.update_number] = false;
+          updatedPlayingList[update.update_number] = false;
           this.setState({ disabled: true, playing: updatedPlayingList });
         },
         onstop: () => {
           const updatedPlayingList = this.state.playing;
-          updatedPlayingList[post.update_number] = false;
+          updatedPlayingList[update.update_number] = false;
           this.setState({ disabled: true, playing: updatedPlayingList });
         }
       });
-      this.state.samples[post.audio] = sample;
-    });
+      this.state.samples[update.audio] = sample;
+    }));
   }
 
   timestampClickHandler = (id) => {
@@ -85,6 +84,7 @@ class App extends Component {
   render() {
     return (
       <div className="App" >
+        <img className="Continent-Background" src="pixel-map-background.png"></img>
         <BrandHeader
           disabled={this.state.disabled}
         />

@@ -8,7 +8,8 @@ const brandHeader = props => (
         <GlitchClip disabled={props.disabled}>
             <img className={classes.logo} src="logo.png" />
         </GlitchClip>
-        <img className={classes.live} src="https://media.giphy.com/media/d7SnWNs1hyW2hNrFRn/giphy.gif" />
+        {/* <img className={classes.live} src="https://media.giphy.com/media/d7SnWNs1hyW2hNrFRn/giphy.gif" /> */}
+        <img className={classes.live} src="live-gif.webp" />
     </div>
 )
 

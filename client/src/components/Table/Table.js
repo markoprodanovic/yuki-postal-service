@@ -1,105 +1,76 @@
-import React from 'react';
+import React, { useState, useEffect } from "react"
+import Header from './Header/Header'
+import Row from './Row/Row'
 
-import Header from './Header/Header';
-import Row from './Row/Row';
-
-import classes from './Table.module.css';
+import classes from './Table.module.css'
 
 const Table = (props) => {
+    const [posts, setPosts] = useState([])
+
+    useEffect(() => {
+        fetch('http://localhost:5000/api/posts')
+            .then(res => res.json())
+            .then(data => setPosts(data))
+    }, [])
+
+    const makeHeader = (post) => {
+        return (
+            <Header
+                update_time={post.date}
+                short_date={post.short_date} />
+        )
+    }
+
+    const makeRow = (post) => {
+        // console.log({ 'id': post._id.$oid })
+        return (
+            <Row
+                key={post._id.$oid}
+                updateNumber={post.update_number}
+                message={post.message}
+                location={post.location}
+                time={post.time}
+                clickHandler={() => props.timestampClickHandler(post.audio)}
+                description={post.description}
+                showPlaying={props.playing[post.update_number]}
+            />
+        )
+    }
+
+    const makeTableBody = (updates) => {
+        const rows = updates.map(update => makeRow(update))
+        return (
+            <tbody>
+                {rows}
+            </tbody>
+        )
+    }
+
+    const makeTable = (posts) => {
+        const table = []
+        posts.map((post) => {
+            const header = makeHeader(post)
+            table.push(header)
+            const body = makeTableBody(post.updates)
+            table.push(body)
+        })
+        return table
+    }
+
+    let trackingTable = [];
+    if (posts.length > 0) {
+        trackingTable = makeTable(posts)
+    }
 
     return (
         <div className={classes.container} >
+            <p>~~progress bar goes here~~</p>
             <div className={classes.howTo}>
                 * Click timestamps to hear samples *
             </div>
             <table>
-                <Header
-                    update_time={'Tuesday, January 18, 2020 00:37:00'}
-                    short_date={"Tue, Jan 18"} />
-                <tbody>
-                    <Row
-                        updateNumber={7}
-                        message={'Departed Facility in VANCOUVER - CA'}
-                        location={'VANCOUVER - CANADA'}
-                        time={'14:32'}
-                        clickHandler={() => props.timestampClickHandler("OK_BABY_YPS.m4a")}
-                        description={'ALBUM-1030YBFLPH - NKOW'}
-                        showPlaying={props.playing[7]}
-                    />
-                    <Row
-                        updateNumber={6}
-                        message={'Clearance complete at VANCOUVER - CA'}
-                        location={'VANCOUVER - CANADA'}
-                        time={'02:39'}
-                        clickHandler={() => props.timestampClickHandler("NEW_KIND_OF_WAR_YPS.m4a")}
-                        description={'ALBUM-1030YBFLPH'}
-                        showPlaying={props.playing[6]}
-                    />
-                    <Row
-                        updateNumber={5}
-                        message={'Arrived at Sort Facility VANCOUVER - CA'}
-                        location={'VANCOUVER - CANADA'}
-                        time={'03:01'}
-                        clickHandler={() => props.timestampClickHandler("MET_GALA_YPS.m4a")}
-                        description={'ALBUM-1030YBFLPH'}
-                        showPlaying={props.playing[5]}
-                    />
-                </tbody>
-                <Header
-                    update_time={"Wednesday, January 15, 2020 00:37:00"}
-                    short_date={"Wed, Jan 15"}
-                />
-                <tbody>
-                    <Row
-                        updateNumber={4}
-                        message={'Departed Facilityin AUCKLAND - NZ'}
-                        location={'AUCKLAND - NEW ZEALAND'}
-                        time={'02:39'}
-                        clickHandler={() => props.timestampClickHandler("MASK_OFF_YPS.m4a")}
-                        description={'ALBUM-1030YBFLPH'}
-                        showPlaying={props.playing[4]}
-                    />
-                </tbody>
-                <Header
-                    update_time={"Tuesday, January 14, 2020 00:37:00"}
-                    short_date={"Tue, Jan 14"}
-                />
-                <tbody>
-                    <Row
-                        updateNumber={3}
-                        message={'Processed at AUCKLAND - NZ'}
-                        location={'AUCKLAND - NEW ZEALAND'}
-                        time={'03:51'}
-                        clickHandler={() => props.timestampClickHandler("DRAMA_QUEEN_YPS.m4a")}
-                        description={'ALBUM-1030YBFLPH'}
-                        showPlaying={props.playing[3]}
-                    />
-                    <Row
-                        updateNumber={2}
-                        message={'Arrived at Sort Facility AUCKLAND - NZ'}
-                        location={'AUCKLAND - NEW ZEALAND'}
-                        time={'02:20'}
-                        clickHandler={() => props.timestampClickHandler("DARLING_YPS.m4a")}
-                        description={'ALBUM-1030YBFLPH'}
-                        showPlaying={props.playing[2]}
-                    />
-                </tbody>
-                <Header
-                    update_time={"Monday, January 13, 2020 00:37:00"}
-                    short_date={"Mon, Jan 13"}
-                />
-                <tbody>
-                    <Row
-                        updateNumber={1}
-                        message={'Shipment information received'}
-                        location={'HAMILTON - NEW ZEALAND'}
-                        time={'02:44'}
-                        clickHandler={() => props.timestampClickHandler("BE_FREE_YPS.m4a")}
-                        description={'ALBUM-1030YBFLPH'}
-                        showPlaying={props.playing[1]}
-                    />
-                </tbody>
-            </table >
+                {trackingTable}
+            </table>
         </div >
     );
 }

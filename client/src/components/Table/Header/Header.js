@@ -4,8 +4,9 @@ import classes from './Header.module.css';
 import windowSize from 'react-window-size';
 
 const header = (props) => {
-    let date = props.update_time.substring(0, props.update_time.length - 8);
-    if (props.windowWidth < 800) {
+    // let date = props.update_time.substring(0, props.update_time.length - 8);
+    let date = props.update_time
+    if (props.windowWidth < 700) {
         date = props.short_date
     }
     return (

@@ -4,17 +4,18 @@ author: Marko Prodanovic
 copyright: Marko Prodanovic, Yuki Postal Service, 2020
 */
 
-// const updateScheduler = require('./updateScheduler')
-const updateScheduler = require('./updateScheduler.js');
-const express = require('express');
-const path = require('path');
-const app = express();
+const updateScheduler = require('./updateScheduler')
+// const updateScheduler = require('./updateScheduler.js/index.js')
+const express = require('express')
+const cors = require('cors')
+const path = require('path')
+const app = express()
 
 const root = require('path').join(__dirname, 'client', 'build')
 
 // JSON
-const updates = require('./updates.json');
-const posts = require('./posts.json');
+const updates = require('./data/updates.json')
+const posts = require('./data/posts.json')
 
 
 // SCHEDULE UPDATES
@@ -26,11 +27,11 @@ testMessage = {
     "scheduled": j
 }
 
-app.use(express.static(root));
+app.use(express.static(root), cors());
 
-// app.get('/api/test', (req, res) => {
-//     res.json(testMessage);
-// });
+app.get('/api/test', (req, res) => {
+    res.json(testMessage);
+});
 
 app.get('/api/posts', (req, res) => {
     res.json(posts)
