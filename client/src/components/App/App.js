@@ -1,5 +1,6 @@
 // react
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { Howl } from 'howler';
 
@@ -7,6 +8,10 @@ import { Howl } from 'howler';
 import BrandHeader from '../BrandHeader/BrandHeader';
 import Footer from '../Footer/Footer';
 import Table from '../Table/Table';
+
+// pages
+import Tracking from '../../pages/Tracking';
+import Home from '../../pages/Home';
 
 // styles
 import './App.css';
@@ -83,17 +88,26 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App" >
-        <img className="Continent-Background" src="pixel-map-background.png"></img>
-        <BrandHeader
-          disabled={this.state.disabled}
-        />
-        <Table
-          timestampClickHandler={this.timestampClickHandler}
-          playing={this.state.playing}
-        />
-        <Footer />
-      </div>
+      <Router>
+        <div className="App" >
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/tracking">
+              <img className="Continent-Background" src="pixel-map-background.png"></img>
+              <BrandHeader
+                disabled={this.state.disabled}
+              />
+              <Table
+                timestampClickHandler={this.timestampClickHandler}
+                playing={this.state.playing}
+              />
+              <Footer />
+            </Route>
+          </Switch>
+        </div>
+      </Router >
     );
   }
 }
