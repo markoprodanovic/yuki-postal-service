@@ -16,7 +16,7 @@ module.exports = class updateScheduler {
 
                     const oldPath = `./vault/${post.audio}`;
                     // const newPath = `./client/public/audio/${post.audio}`;
-                    const newPath = `./client/build/public/audio/${post.audio}`
+                    const newPath = `./client/build/audio/${post.audio}`;
 
                     const readJSONString = fs.readFileSync('./data/posts.json')
                     const postsData = JSON.parse(readJSONString)
