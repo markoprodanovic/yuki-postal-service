@@ -8,7 +8,7 @@ const Table = (props) => {
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/posts')
+        fetch('https://yps-test.herokuapp.com/api/posts')
             .then(res => res.json())
             .then(data => setPosts(data))
     }, [])
