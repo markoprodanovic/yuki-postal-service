@@ -1,6 +1,10 @@
 .slideshow {
-    opacity: 0.7;
+    opacity: 1;
+    margin-right: 2rem;
     width: 500px;
     height: 100%;
-    background-color: deeppink;
+}
+
+.image {
+    object-fit: cover;
 }

@@ -1,0 +1,26 @@
+h3 {
+    margin: 1rem 0;
+    color: #4649ba;
+    font-style: italic;
+    font-size: 1.5rem;
+}
+
+.slide-container {
+    height: 18rem;
+}
+
+.slide-container * {
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (max-width: 800px) {
+    .slide-container {
+        display: none;
+    }
+
+    h3 {
+        display: none;
+    }
+}

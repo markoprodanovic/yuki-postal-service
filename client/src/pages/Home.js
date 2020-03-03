@@ -12,10 +12,10 @@ function Home() {
     return (
         <div className={classes.home}>
             <Background />
-            {/* <div className={classes.slideContainer}>
+            <div className={classes.slideContainer}>
                 <Slideshow />
             </div>
-            <TrackerInput /> */}
+            <TrackerInput />
         </div >
     )
 }
