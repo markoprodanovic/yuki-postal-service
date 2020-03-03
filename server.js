@@ -38,8 +38,8 @@ app.get('/api/posts', (req, res) => {
 });
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-    // res.sendFile('index.html', { root });
+    // res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+    res.sendFile('index.html', { root });
 });
 
 const port = process.env.PORT || 5000;
