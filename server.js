@@ -11,7 +11,7 @@ const cors = require('cors')
 const path = require('path')
 const app = express()
 
-const root = require('path').join(__dirname, 'client', 'build')
+const root = path.join(__dirname, 'client', 'build')
 
 // JSON
 const updates = require('./data/updates.json')
@@ -38,7 +38,8 @@ app.get('/api/posts', (req, res) => {
 });
 
 app.get('*', (req, res) => {
-    res.sendFile('index.html', { root });
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+    // res.sendFile('index.html', { root });
 });
 
 const port = process.env.PORT || 5000;
