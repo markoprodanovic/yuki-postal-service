@@ -24,12 +24,15 @@ module.exports = class updateScheduler {
 
                     const writeJSONString = JSON.stringify(postsData)
                     fs.writeFileSync('./data/posts.json', writeJSONString)
+                    console.log('post transferred successfully')
 
                     fs.rename(oldPath, newPath, (err) => {
                         if (err) {
                             console.log(`AUDIO TRANSFER ERROR:`);
                             console.log(err);
                             // and maybe find a way to get notified about it
+                        } else {
+                            console.log(`POSTED: ${post.audio}`)
                         }
                     });
                 };
