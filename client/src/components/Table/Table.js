@@ -8,28 +8,28 @@ const Table = (props) => {
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
-        fetch('https://yps-test.herokuapp.com/api/posts')
+        fetch(`https://localhost:5000/api/posts`)
             .then(res => res.json())
             .then(data => setPosts(data))
+            .catch(err => console.error(err))
     }, [])
 
     const makeHeader = (post) => {
         return (
             <Header
                 update_time={post.date}
-                short_date={post.short_date} />
+                short_date={post.shortDate} />
         )
     }
 
     const makeRow = (post) => {
-        // console.log({ 'id': post._id.$oid })
         return (
             <Row
-                key={post._id.$oid}
-                updateNumber={post.update_number}
+                key={post._id}
+                updateNumber={post.updateNumber}
                 message={post.message}
                 location={post.location}
-                time={post.time}
+                time={post.updateTime}
                 clickHandler={() => props.timestampClickHandler(post.audio)}
                 description={post.description}
                 showPlaying={props.playing[post.update_number]}

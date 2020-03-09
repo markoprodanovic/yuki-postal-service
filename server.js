@@ -4,41 +4,60 @@ author: Marko Prodanovic
 copyright: Marko Prodanovic, Yuki Postal Service, 2020
 */
 
-const updateScheduler = require('./updateScheduler')
+// OLD IMPLEMENTATION
+// const updateScheduler = require('./updateScheduler')
 // const updateScheduler = require('./updateScheduler.js/index.js')
+
+// EXPRESS AND ROUTING
 const express = require('express')
 const cors = require('cors')
 const path = require('path')
 const app = express()
-
 const root = path.join(__dirname, 'client', 'build')
 
-// JSON
-const updates = require('./data/updates.json')
-const posts = require('./data/posts.json')
+// DOTENV
+const dotenv = require('dotenv')
+dotenv.config()
 
+// DB
+const mongoose = require('mongoose')
+const user = process.env.DB_USER
+const pass = process.env.DB_PASS
+const uri = `mongodb+srv://${user}:${pass}@yuki-postal-service-ls1nu.mongodb.net/test?retryWrites=true&w=majority`
+mongoose.set('useNewUrlParser', true)
+mongoose.set('useUnifiedTopology', true)
+mongoose.connect(uri).catch(err => {
+    console.error('Database error', err.stack)
+})
+const { Day } = require('./models/Day')
+
+// JSON
+// const updates = require('./data/updates.json')
+// const posts = require('./data/posts.json')
 
 // SCHEDULE UPDATES
-const scheduler = new updateScheduler(updates);
-let j = scheduler.schedule();
-
-testMessage = {
-    "response_type": "TEST",
-    "scheduled": j
-}
+// const scheduler = new updateScheduler(updates);
+// let j = scheduler.schedule();
 
 app.use(express.static(root), cors());
 
-app.get('/api/test', (req, res) => {
-    res.json(testMessage);
-});
-
+// Updates API Endpoint
 app.get('/api/posts', (req, res) => {
-    res.json(posts)
+    Day.find()
+        .then(updates => {
+            if (updates && updates.length > 0) {
+                res.status(200).json(updates)
+            } else {
+                res.status(404).json({ message: 'No Updates in Database' })
+            }
+        })
+        .catch(err => {
+            console.log(err)
+            res.status(500).json({ error: err })
+        })
 });
 
 app.get('*', (req, res) => {
-    // res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
     res.sendFile('index.html', { root });
 });
 
