@@ -37,9 +37,13 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    const response = await fetch('api/posts');
-    const posts = await response.json();
-    this.setState({ posts: posts });
+    try {
+      const response = await fetch('http://localhost:5000/api/posts')
+      const posts = await response.json()
+      this.setState({ posts: posts })
+    } catch (err) {
+      console.error(err)
+    }
 
     this.state.posts.forEach((post) => post.updates.forEach((update) => {
       const path = `/audio/${update.audio}`
@@ -47,17 +51,17 @@ class App extends Component {
         src: [path],
         onplay: () => {
           const updatedPlayingList = this.state.playing;
-          updatedPlayingList[update.update_number] = true;
+          updatedPlayingList[update.updateNumber] = true;
           this.setState({ disabled: false, playing: updatedPlayingList });
         },
         onend: () => {
           const updatedPlayingList = this.state.playing;
-          updatedPlayingList[update.update_number] = false;
+          updatedPlayingList[update.updateNumber] = false;
           this.setState({ disabled: true, playing: updatedPlayingList });
         },
         onstop: () => {
           const updatedPlayingList = this.state.playing;
-          updatedPlayingList[update.update_number] = false;
+          updatedPlayingList[update.updateNumber] = false;
           this.setState({ disabled: true, playing: updatedPlayingList });
         }
       });

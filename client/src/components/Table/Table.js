@@ -4,43 +4,46 @@ import Row from './Row/Row'
 
 import classes from './Table.module.css'
 
-const Table = (props) => {
+const Table = ({ timestampClickHandler, playing }) => {
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
-        fetch(`https://localhost:5000/api/posts`)
+        fetch(`http://localhost:5000/api/posts`)
             .then(res => res.json())
-            .then(data => setPosts(data))
+            .then(data => setPosts(data.reverse()))
             .catch(err => console.error(err))
     }, [])
 
     const makeHeader = (post) => {
+        const d = new Date(post.date)
+        const dateString = d.toString().substring(0, 15)
         return (
             <Header
-                update_time={post.date}
+                key={post.date}
+                update_time={dateString}
                 short_date={post.shortDate} />
         )
     }
 
-    const makeRow = (post) => {
+    const makeRow = (update) => {
         return (
             <Row
-                key={post._id}
-                updateNumber={post.updateNumber}
-                message={post.message}
-                location={post.location}
-                time={post.updateTime}
-                clickHandler={() => props.timestampClickHandler(post.audio)}
-                description={post.description}
-                showPlaying={props.playing[post.update_number]}
+                key={update.updateNumber}
+                updateNumber={update.updateNumber}
+                message={update.message}
+                location={update.location}
+                time={update.updateTime}
+                clickHandler={() => timestampClickHandler(update.audio)}
+                description={update.description}
+                showPlaying={playing[update.updateNumber]}
             />
         )
     }
 
-    const makeTableBody = (updates) => {
+    const makeTableBody = (id, updates) => {
         const rows = updates.map(update => makeRow(update))
         return (
-            <tbody>
+            <tbody key={id}>
                 {rows}
             </tbody>
         )
@@ -51,7 +54,7 @@ const Table = (props) => {
         posts.map((post) => {
             const header = makeHeader(post)
             table.push(header)
-            const body = makeTableBody(post.updates)
+            const body = makeTableBody(post._id, post.updates)
             table.push(body)
         })
         return table
@@ -64,7 +67,6 @@ const Table = (props) => {
 
     return (
         <div className={classes.container} >
-            <p>~~progress bar goes here~~</p>
             <div className={classes.howTo}>
                 * Click timestamps to hear samples *
             </div>
