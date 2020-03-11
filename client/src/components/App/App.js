@@ -10,7 +10,6 @@ import Footer from '../Footer/Footer';
 import Table from '../Table/Table';
 
 // pages
-import Tracking from '../../pages/Tracking';
 import Home from '../../pages/Home';
 
 // styles
@@ -99,7 +98,7 @@ class App extends Component {
               <Home />
             </Route>
             <Route path="/tracking">
-              <img className="Continent-Background" src="pixel-map-background.png"></img>
+              <img className="Continent-Background" src="pixel-map-background.png" alt=""></img>
               <BrandHeader
                 disabled={this.state.disabled}
               />

@@ -51,7 +51,7 @@ const Table = ({ timestampClickHandler, playing }) => {
 
     const makeTable = (posts) => {
         const table = []
-        posts.map((post) => {
+        posts.forEach((post) => {
             const header = makeHeader(post)
             table.push(header)
             const body = makeTableBody(post._id, post.updates)
