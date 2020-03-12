@@ -10,7 +10,10 @@ const Table = ({ timestampClickHandler, playing }) => {
     useEffect(() => {
         fetch(`http://localhost:5000/api/posts`)
             .then(res => res.json())
-            .then(data => setPosts(data.reverse()))
+            .then(data => {
+                data.map(p => p.updates.reverse())
+                setPosts(data.reverse())
+            })
             .catch(err => console.error(err))
     }, [])
 

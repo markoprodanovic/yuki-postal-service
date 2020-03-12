@@ -45,26 +45,29 @@ class App extends Component {
     }
 
     this.state.posts.forEach((post) => post.updates.forEach((update) => {
-      const path = `/audio/${update.audio}`
-      const sample = new Howl({
-        src: [path],
-        onplay: () => {
-          const updatedPlayingList = this.state.playing;
-          updatedPlayingList[update.updateNumber] = true;
-          this.setState({ disabled: false, playing: updatedPlayingList });
-        },
-        onend: () => {
-          const updatedPlayingList = this.state.playing;
-          updatedPlayingList[update.updateNumber] = false;
-          this.setState({ disabled: true, playing: updatedPlayingList });
-        },
-        onstop: () => {
-          const updatedPlayingList = this.state.playing;
-          updatedPlayingList[update.updateNumber] = false;
-          this.setState({ disabled: true, playing: updatedPlayingList });
-        }
-      });
-      this.state.samples[update.audio] = sample;
+      fetch(`http://localhost:5000/api/audio/${update.audio}`)
+        .then(res => {
+          const filePath = res.url
+          const sample = new Howl({
+            src: [filePath],
+            onplay: () => {
+              const updatedPlayingList = this.state.playing;
+              updatedPlayingList[update.updateNumber] = true;
+              this.setState({ disabled: false, playing: updatedPlayingList });
+            },
+            onend: () => {
+              const updatedPlayingList = this.state.playing;
+              updatedPlayingList[update.updateNumber] = false;
+              this.setState({ disabled: true, playing: updatedPlayingList });
+            },
+            onstop: () => {
+              const updatedPlayingList = this.state.playing;
+              updatedPlayingList[update.updateNumber] = false;
+              this.setState({ disabled: true, playing: updatedPlayingList });
+            }
+          });
+          this.state.samples[update.audio] = sample;
+        })
     }));
   }
 
