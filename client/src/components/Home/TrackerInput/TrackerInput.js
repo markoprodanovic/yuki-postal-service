@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import classes from './TrackerInput.module.css'
 
 function TrackerInput() {
-
     return (
         <div className={classes.trackerInput}>
             <h2>TRACK SHIPMENT</h2>

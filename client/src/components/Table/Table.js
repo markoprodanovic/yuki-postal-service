@@ -4,18 +4,18 @@ import Row from './Row/Row'
 
 import classes from './Table.module.css'
 
-const Table = ({ timestampClickHandler, playing }) => {
-    const [posts, setPosts] = useState([])
+const Table = ({ posts, timestampClickHandler, currentlyPlaying }) => {
+    const [reversedPosts, setReversedPosts] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/posts`)
-            .then(res => res.json())
-            .then(data => {
-                data.map(p => p.updates.reverse())
-                setPosts(data.reverse())
-            })
-            .catch(err => console.error(err))
-    }, [])
+        if (posts.length > 0) {
+            // reverse updates
+            posts.map(post => post.updates.reverse())
+
+            // reverse posts
+            setReversedPosts(posts.reverse())
+        }
+    }, [posts])
 
     const makeHeader = (post) => {
         const d = new Date(post.date)
@@ -23,8 +23,8 @@ const Table = ({ timestampClickHandler, playing }) => {
         return (
             <Header
                 key={post.date}
-                update_time={dateString}
-                short_date={post.shortDate} />
+                date={dateString}
+                shortDate={post.shortDate} />
         )
     }
 
@@ -38,7 +38,7 @@ const Table = ({ timestampClickHandler, playing }) => {
                 time={update.updateTime}
                 clickHandler={() => timestampClickHandler(update.audio)}
                 description={update.description}
-                showPlaying={playing[update.updateNumber]}
+                showPlaying={currentlyPlaying === update.audio}
             />
         )
     }
@@ -63,15 +63,15 @@ const Table = ({ timestampClickHandler, playing }) => {
         return table
     }
 
-    let trackingTable = [];
-    if (posts.length > 0) {
-        trackingTable = makeTable(posts)
+    let trackingTable = []
+    if (reversedPosts.length > 0) {
+        trackingTable = makeTable(reversedPosts)
     }
 
     return (
         <div className={classes.container} >
             <div className={classes.howTo}>
-                * Click timestamps to hear samples *
+                CLICK TIMESTAMPS TO HEAR SAMPLES
             </div>
             <table>
                 {trackingTable}

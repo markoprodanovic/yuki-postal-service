@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './Footer.module.css';
 
-const footer = props => {
+function Footer() {
     return (
         <div className={classes.footer}>
             <div className={classes.credit}>
@@ -11,14 +11,13 @@ const footer = props => {
                 <p>
                     <a href="https://www.instagram.com/yukithedogman/?hl=en" target="_blank" rel="noopener noreferrer" >
                         YUKI
-                    </a> and
-                    <a href="https://www.instagram.com/markoprodanovic/?hl=en" target="_blank" rel="noopener noreferrer">
+                    </a> and <a href="https://www.instagram.com/markoprodanovic/?hl=en" target="_blank" rel="noopener noreferrer">
                         MARKO
                     </a>
                 </p>
             </div>
         </div>
-    );
+    )
 }
 
-export default footer;
+export default Footer;

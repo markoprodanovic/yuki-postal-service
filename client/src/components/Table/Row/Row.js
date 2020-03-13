@@ -2,7 +2,7 @@ import React from 'react';
 
 import classes from './Row.module.css';
 
-const row = (props) => {
+function Row(props) {
     return (
         <tr className={classes.row}>
             <td className={classes.updateNumber}>{props.updateNumber}</td>
@@ -19,8 +19,8 @@ const row = (props) => {
                 </div>
             </td>
             <td>{props.description}</td>
-        </tr >
+        </tr>
     )
 }
 
-export default row
+export default Row
