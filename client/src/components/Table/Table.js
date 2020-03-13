@@ -4,43 +4,49 @@ import Row from './Row/Row'
 
 import classes from './Table.module.css'
 
-const Table = (props) => {
-    const [posts, setPosts] = useState([])
+const Table = ({ posts, timestampClickHandler, currentlyPlaying }) => {
+    const [reversedPosts, setReversedPosts] = useState([])
 
     useEffect(() => {
-        fetch(`https://localhost:5000/api/posts`)
-            .then(res => res.json())
-            .then(data => setPosts(data))
-            .catch(err => console.error(err))
-    }, [])
+        if (posts.length > 0) {
+            // reverse updates
+            posts.map(post => post.updates.reverse())
+
+            // reverse posts
+            setReversedPosts(posts.reverse())
+        }
+    }, [posts])
 
     const makeHeader = (post) => {
+        const d = new Date(post.date)
+        const dateString = d.toString().substring(0, 15)
         return (
             <Header
-                update_time={post.date}
-                short_date={post.shortDate} />
+                key={post.date}
+                date={dateString}
+                shortDate={post.shortDate} />
         )
     }
 
-    const makeRow = (post) => {
+    const makeRow = (update) => {
         return (
             <Row
-                key={post._id}
-                updateNumber={post.updateNumber}
-                message={post.message}
-                location={post.location}
-                time={post.updateTime}
-                clickHandler={() => props.timestampClickHandler(post.audio)}
-                description={post.description}
-                showPlaying={props.playing[post.update_number]}
+                key={update.updateNumber}
+                updateNumber={update.updateNumber}
+                message={update.message}
+                location={update.location}
+                time={update.updateTime}
+                clickHandler={() => timestampClickHandler(update.audio)}
+                description={update.description}
+                showPlaying={currentlyPlaying === update.audio}
             />
         )
     }
 
-    const makeTableBody = (updates) => {
+    const makeTableBody = (id, updates) => {
         const rows = updates.map(update => makeRow(update))
         return (
-            <tbody>
+            <tbody key={id}>
                 {rows}
             </tbody>
         )
@@ -48,25 +54,24 @@ const Table = (props) => {
 
     const makeTable = (posts) => {
         const table = []
-        posts.map((post) => {
+        posts.forEach((post) => {
             const header = makeHeader(post)
             table.push(header)
-            const body = makeTableBody(post.updates)
+            const body = makeTableBody(post._id, post.updates)
             table.push(body)
         })
         return table
     }
 
-    let trackingTable = [];
-    if (posts.length > 0) {
-        trackingTable = makeTable(posts)
+    let trackingTable = []
+    if (reversedPosts.length > 0) {
+        trackingTable = makeTable(reversedPosts)
     }
 
     return (
         <div className={classes.container} >
-            <p>~~progress bar goes here~~</p>
             <div className={classes.howTo}>
-                * Click timestamps to hear samples *
+                CLICK TIMESTAMPS TO HEAR SAMPLES
             </div>
             <table>
                 {trackingTable}

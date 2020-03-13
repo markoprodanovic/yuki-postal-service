@@ -19,6 +19,9 @@ client/build
 .env.test.local
 .env.production.local
 
+# old table data
+oldTableData
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

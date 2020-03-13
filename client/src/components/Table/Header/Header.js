@@ -1,14 +1,14 @@
-import React from 'react';
+import React from 'react'
 
-import classes from './Header.module.css';
-import windowSize from 'react-window-size';
+import useWindowSize from '../../../hooks/useWindowSize'
 
-const header = (props) => {
-    // let date = props.update_time.substring(0, props.update_time.length - 8);
-    let date = props.update_time
-    if (props.windowWidth < 700) {
-        date = props.short_date
-    }
+import classes from './Header.module.css'
+
+function Header(props) {
+    const size = useWindowSize()
+
+    const date = size.width < 700 ? props.shortDate : props.date
+
     return (
         <thead className={classes.header}>
             <tr>
@@ -21,4 +21,4 @@ const header = (props) => {
     );
 }
 
-export default windowSize(header);
+export default Header;

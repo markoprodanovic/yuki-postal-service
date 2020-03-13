@@ -4,10 +4,6 @@ author: Marko Prodanovic
 copyright: Marko Prodanovic, Yuki Postal Service, 2020
 */
 
-// OLD IMPLEMENTATION
-// const updateScheduler = require('./updateScheduler')
-// const updateScheduler = require('./updateScheduler.js/index.js')
-
 // EXPRESS AND ROUTING
 const express = require('express')
 const cors = require('cors')
@@ -31,14 +27,6 @@ mongoose.connect(uri).catch(err => {
 })
 const { Day } = require('./models/Day')
 
-// JSON
-// const updates = require('./data/updates.json')
-// const posts = require('./data/posts.json')
-
-// SCHEDULE UPDATES
-// const scheduler = new updateScheduler(updates);
-// let j = scheduler.schedule();
-
 app.use(express.static(root), cors());
 
 // Updates API Endpoint
@@ -56,6 +44,19 @@ app.get('/api/posts', (req, res) => {
             res.status(500).json({ error: err })
         })
 });
+
+// Audio API Endpoint
+app.get('/api/audio/:name', (req, res) => {
+    const name = req.params.name
+    const filePath = path.join(__dirname, 'audio', name)
+    res.sendFile(filePath, function (err) {
+        if (err) {
+            console.error(err)
+        } else {
+            console.log('Sent:', filePath)
+        }
+    })
+})
 
 app.get('*', (req, res) => {
     res.sendFile('index.html', { root });

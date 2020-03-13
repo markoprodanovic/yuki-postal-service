@@ -4,6 +4,8 @@ import { Slide } from 'react-slideshow-image';
 import classes from './Slideshow.module.css'
 import './Slideshow.css';
 
+// TODO: Delete this entire component and styling once you get the goahead from Hugo
+
 const fadeImages = [
     'imageGallery/1.jpeg',
     'imageGallery/2.jpeg',
