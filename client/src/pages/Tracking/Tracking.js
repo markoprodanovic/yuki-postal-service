@@ -16,8 +16,10 @@ function Tracking() {
     const [posts, setPosts] = useState([])
     const [audioSamples, setAudioSamples] = useState({})
 
+    const tkn = 'o3V^E1TpG*cItl0'
+
     useEffect(() => {
-        fetch('http://localhost:5000/api/posts', { headers: { 'Authorization': 'Bearer o3V^E1TpG*cItl0' } })
+        fetch('http://localhost:5000/api/posts', { headers: { 'Authorization': `Bearer ${tkn}` } })
             .then(res => res.json())
             .then(posts => {
                 setPosts(posts)
