@@ -16,8 +16,10 @@ function Tracking() {
     const [posts, setPosts] = useState([])
     const [audioSamples, setAudioSamples] = useState({})
 
+    const tkn = 'o3V^E1TpG*cItl0'
+
     useEffect(() => {
-        fetch('http://localhost:5000/api/posts')
+        fetch('http://localhost:5000/api/posts', { headers: { 'Authorization': `Bearer ${tkn}` } })
             .then(res => res.json())
             .then(posts => {
                 setPosts(posts)
@@ -30,12 +32,9 @@ function Tracking() {
             const samples = {}
             posts.forEach(post => {
                 post.updates.forEach(update => {
-                    fetch(`http://localhost:5000/api/audio/${update.audio}`)
-                        .then(res => {
-                            const sample = makeSample(res.url, update.audio)
-                            samples[update.audio] = sample
-                        })
-                        .catch(err => console.error(err))
+                    const url = `http://localhost:5000/api/audio/${update._id}`
+                    const sample = makeSample(url, update.audio)
+                    samples[update.audio] = sample
                 })
             })
             setAudioSamples(samples)
@@ -45,6 +44,7 @@ function Tracking() {
     const makeSample = (url, title) => {
         return new Howl({
             src: [url],
+            format: ['m4a'],
             onplay: () => {
                 setCurrentlyPlaying(title)
             },

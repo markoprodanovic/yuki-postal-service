@@ -15,7 +15,6 @@ mongoose.connect(uri).catch(err => {
 
 console.log('Seeding Database...')
 Day.deleteMany({}, (err, res) => {
-    console.log(res)
     seed()
 })
 
@@ -29,7 +28,7 @@ function seed() {
             _id: new mongoose.Types.ObjectId(),
             date: new Date(post.date),
             shortDate: post.shortDate,
-            updates: makeUpdates(post.updates)
+            updates: post.updates.map(update => makeUpdate(update))
         })
         day.save((err) => {
             if (err) {
@@ -45,19 +44,16 @@ function seed() {
 
 
 // HELPERS
-function makeUpdates(updates) {
-    updates.map(update => {
-        new Update({
-            _id: new mongoose.Types.ObjectId(),
-            updateNumber: update.updateNumber,
-            updateTime: update.updateTime,
-            message: update.message,
-            location: update.location,
-            description: update.description,
-            audio: update.audio
-        })
+function makeUpdate(update) {
+    return new Update({
+        _id: new mongoose.Types.ObjectId(),
+        updateNumber: update.updateNumber,
+        updateTime: update.updateTime,
+        message: update.message,
+        location: update.location,
+        description: update.description,
+        audio: update.audio
     })
-    return updates
 }
 
 function exit() {
