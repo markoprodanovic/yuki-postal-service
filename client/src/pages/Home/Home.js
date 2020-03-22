@@ -1,7 +1,7 @@
 import React from 'react'
 
 // components
-import TrackerInput from '../../components/Home/TrackerInput/TrackerInput'
+import TrackerStatus from '../../components/Home/TrackerStatus/TrackerStatus'
 import Background from '../../components/Home/Background/Background'
 
 // styles
@@ -11,7 +11,9 @@ function Home() {
     return (
         <div className={classes.home}>
             <Background />
-            <TrackerInput />
+            <TrackerStatus
+                progress={7}
+                lastUpdateMessage={'Arrived at Sort Facility AUCKLAND - NZ'} />
         </div >
     )
 }

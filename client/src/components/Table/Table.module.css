@@ -9,9 +9,9 @@
 
 .howTo {
     width: 100%;
-    font-style: italic;
+    /* font-style: italic; */
     font-weight: 600;
-    color: rgba(98,110,213, 0.5);
+    color: rgba(44, 50, 106, 0.7);
 }
 
 table {
@@ -49,12 +49,6 @@ td:not(:last-child):not(:first-child) {
 th:not(:last-child) {
     border-right: 4px solid rgb(240,241,251);
 }
-
-/* .progress {
-    margin-bottom: 1.5rem;
-    width: 30rem;
-    height: 7rem;
-} */
 
 
 @media screen and (max-width: 600px) {
