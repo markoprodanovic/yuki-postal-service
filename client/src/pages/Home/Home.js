@@ -11,7 +11,9 @@ function Home() {
     return (
         <div className={classes.home}>
             <Background />
-            <TrackerStatus />
+            <TrackerStatus
+                progress={7}
+                lastUpdateMessage={'Arrived at Sort Facility AUCKLAND - NZ'} />
         </div >
     )
 }
