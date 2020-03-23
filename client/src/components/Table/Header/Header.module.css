@@ -1,8 +1,8 @@
 .header {
     font-size: 0.9em;
-    background-color: rgba(98, 109, 213, 0.40);
+    background-color: rgb(203,206,236);
     /* color: #fff; */
-    color: #191c36;
+    color: rgb(38, 45, 108);
 }
 
 @media screen and (max-width: 800px) {

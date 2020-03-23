@@ -8,6 +8,13 @@
     align-items: center;
 }
 
+.logo {
+    position: absolute;
+    top: 0;
+    margin-top: 2rem;
+    width: 150px;
+}
+
 .slideContainer {
     display: flex;
     justify-content: flex-end;
@@ -22,5 +29,9 @@
     .slideContainer {
         justify-content: center;
         align-items: center;
+    }
+
+    .logo {
+        margin-top: 2rem;
     }
 }

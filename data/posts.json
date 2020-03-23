@@ -57,7 +57,7 @@
                 "updateNumber": 5,
                 "updateTime": "10:00",
                 "message": "Arrived at Sort Facility VANCOUVER - CA",
-                "location": "TODO",
+                "location": "----",
                 "description": "ALBUM-1030YBFLPH",
                 "audio": "TAPESTRY_YPS.m4a"
             },
@@ -65,7 +65,7 @@
                 "updateNumber": 6,
                 "updateTime": "11:00",
                 "message": "Clearance complete at VANCOUVER - CA",
-                "location": "TODO",
+                "location": "----",
                 "description": "ALBUM-1030YBFLPH",
                 "audio": "DRAMA_QUEEN_YPS.m4a"
             }
@@ -86,16 +86,16 @@
             {
                 "updateNumber": 8,
                 "updateTime": "11:00",
-                "message": "TODO",
-                "location": "TODO",
+                "message": "----",
+                "location": "----",
                 "description": "ALBUM-1030YBFLPH",
                 "audio": "MET_GALA_YPS.m4a"
             },
             {
                 "updateNumber": 9,
                 "updateTime": "12:00",
-                "message": "TODO",
-                "location": "TODO",
+                "message": "----",
+                "location": "----",
                 "description": "ALBUM-1030YBFLPH - NKOW",
                 "audio": "OK_BABY_YPS.m4a"
             }
@@ -108,8 +108,8 @@
             {
                 "updateNumber": 10,
                 "updateTime": "10:00",
-                "message": "TODO",
-                "location": "TODO",
+                "message": "----",
+                "location": "----",
                 "description": "ALBUM-1030YBFLPH",
                 "audio": "DARLING_YPS.m4a"
             }

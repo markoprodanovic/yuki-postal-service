@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react"
 import BrandHeader from '../../components/BrandHeader/BrandHeader'
 import Footer from '../../components/Footer/Footer'
 import Table from '../../components/Table/Table'
+import Background from '../../components/Home/Background/Background'
 
 // external modules
 import { Howl } from 'howler'
@@ -70,7 +71,7 @@ function Tracking() {
 
     return (
         <div className={classes.tracking}>
-            <img className={classes.continentBackground} src="pixel-map-background.png" alt=""></img>
+            {/* <img className={classes.continentBackground} src="pixel-map-background.png" alt=""></img> */}
             <BrandHeader />
             <Table
                 posts={posts}
@@ -78,6 +79,7 @@ function Tracking() {
                 currentlyPlaying={currentlyPlaying}
             />
             <Footer />
+            <Background />
         </div>
     )
 }
