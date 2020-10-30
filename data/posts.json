@@ -1,118 +1,118 @@
 [
-    {
-        "date": "Friday, March 06, 2020",
-        "shortDate": "Fri, Mar 06",
-        "updates": [
-            {
-                "updateNumber": 1,
-                "updateTime": "10:00",
-                "message": "Shipment information received",
-                "location": "HAMILTON - NEW ZEALAND",
-                "description": "ALBUM-1030YBFLPH",
-                "audio": "BE_FREE_YPS.m4a"
-            }
-        ]
-    },
-    {
-        "date": "Saturday, March 07, 2020",
-        "shortDate": "Sat, Mar 07",
-        "updates": [
-            {
-                "updateNumber": 2,
-                "updateTime": "10:00",
-                "message": "Arrived at Sort Facility AUCKLAND - NZ",
-                "location": "AUCKLAND - NEW ZEALAND",
-                "description": "ALBUM-1030YBFLPH",
-                "audio": "ON_THE_LAM_YPS.m4a"
-            },
-            {
-                "updateNumber": 3,
-                "updateTime": "11:00",
-                "message": "Processed at AUCKLAND - NZ",
-                "location": "AUCKLAND - NEW ZEALAND",
-                "description": "ALBUM-1030YBFLPH",
-                "audio": "MASK_OFF_YPS.m4a"
-            }
-        ]
-    },
-    {
-        "date": "Sunday, March 08, 2020",
-        "shortDate": "Sun, Mar 08",
-        "updates": [
-            {
-                "updateNumber": 4,
-                "updateTime": "10:00",
-                "message": "Departed Facility in AUCKLAND - NZ",
-                "location": "HAMILTON - NEW ZEALAND",
-                "description": "ALBUM-1030YBFLPH",
-                "audio": "SICTRN_YPS.m4a"
-            }
-        ]
-    },
-    {
-        "date": "Monday, March 09, 2020",
-        "shortDate": "Mon, Mar 09",
-        "updates": [
-            {
-                "updateNumber": 5,
-                "updateTime": "10:00",
-                "message": "Arrived at Sort Facility VANCOUVER - CA",
-                "location": "----",
-                "description": "ALBUM-1030YBFLPH",
-                "audio": "TAPESTRY_YPS.m4a"
-            },
-            {
-                "updateNumber": 6,
-                "updateTime": "11:00",
-                "message": "Clearance complete at VANCOUVER - CA",
-                "location": "----",
-                "description": "ALBUM-1030YBFLPH",
-                "audio": "DRAMA_QUEEN_YPS.m4a"
-            }
-        ]
-    },
-    {
-        "date": "Tuesday, March 10, 2020",
-        "shortDate": "Thu, Mar 10",
-        "updates": [
-            {
-                "updateNumber": 7,
-                "updateTime": "10:00",
-                "message": "Departed Facility in VANCOUVER - CA",
-                "location": "VANCOUVER - CANADA",
-                "description": "ALBUM-1030YBFLPH",
-                "audio": "NEW_KIND_OF_WAR_YPS.m4a"
-            },
-            {
-                "updateNumber": 8,
-                "updateTime": "11:00",
-                "message": "----",
-                "location": "----",
-                "description": "ALBUM-1030YBFLPH",
-                "audio": "MET_GALA_YPS.m4a"
-            },
-            {
-                "updateNumber": 9,
-                "updateTime": "12:00",
-                "message": "----",
-                "location": "----",
-                "description": "ALBUM-1030YBFLPH - NKOW",
-                "audio": "OK_BABY_YPS.m4a"
-            }
-        ]
-    },
-    {
-        "date": "Wednesday, March 11, 2020",
-        "shortDate": "Wed, Mar 11",
-        "updates": [
-            {
-                "updateNumber": 10,
-                "updateTime": "10:00",
-                "message": "----",
-                "location": "----",
-                "description": "ALBUM-1030YBFLPH",
-                "audio": "DARLING_YPS.m4a"
-            }
-        ]
-    }
+  {
+    "date": "Friday, March 06, 2020",
+    "shortDate": "Fri, Mar 06",
+    "updates": [
+      {
+        "updateNumber": 1,
+        "updateTime": "09:16",
+        "message": "Shipment information received",
+        "location": "HAMILTON - NEW ZEALAND",
+        "description": "ALBUM-1030YBFLPH - B3",
+        "audio": "BE_FREE_YPS.m4a"
+      }
+    ]
+  },
+  {
+    "date": "Saturday, March 07, 2020",
+    "shortDate": "Sat, Mar 07",
+    "updates": [
+      {
+        "updateNumber": 2,
+        "updateTime": "10:23",
+        "message": "Arrived at Sort Facility AUCKLAND - NZ",
+        "location": "AUCKLAND - NEW ZEALAND",
+        "description": "ALBUM-1030YBFLPH",
+        "audio": "ON_THE_LAM_YPS.m4a"
+      },
+      {
+        "updateNumber": 3,
+        "updateTime": "11:04",
+        "message": "Processed at AUCKLAND - NZ",
+        "location": "AUCKLAND - NEW ZEALAND",
+        "description": "ALBUM-1030YBFLPH - MO",
+        "audio": "MASK_OFF_YPS.m4a"
+      }
+    ]
+  },
+  {
+    "date": "Sunday, March 08, 2020",
+    "shortDate": "Sun, Mar 08",
+    "updates": [
+      {
+        "updateNumber": 4,
+        "updateTime": "09:46",
+        "message": "Departed Facility in AUCKLAND - NZ",
+        "location": "AUCKLAND - NEW ZEALAND",
+        "description": "ALBUM-1030YBFLPH",
+        "audio": "SICTRN_YPS.m4a"
+      }
+    ]
+  },
+  {
+    "date": "Monday, March 09, 2020",
+    "shortDate": "Mon, Mar 09",
+    "updates": [
+      {
+        "updateNumber": 5,
+        "updateTime": "15:31",
+        "message": "Arrived at Sort Facility RICHMOND - CA",
+        "location": "RICHMOND - CANADA",
+        "description": "ALBUM-1030YBFLPH",
+        "audio": "TAPESTRY_YPS.m4a"
+      }
+    ]
+  },
+  {
+    "date": "Tuesday, March 10, 2020",
+    "shortDate": "Thu, Mar 10",
+    "updates": [
+      {
+        "updateNumber": 6,
+        "updateTime": "11:16",
+        "message": "Clearance complete at RICHMOND - CA",
+        "location": "RICHMOND - CANADA",
+        "description": "ALBUM-1030YBFLPH",
+        "audio": "DRAMA_QUEEN_YPS.m4a"
+      },
+      {
+        "updateNumber": 7,
+        "updateTime": "14:27",
+        "message": "Departed Facility in RICHMOND - CA",
+        "location": "RICHMOND - CANADA",
+        "description": "ALBUM-1030YBFLPH - NKOW",
+        "audio": "NEW_KIND_OF_WAR_YPS.m4a"
+      },
+      {
+        "updateNumber": 8,
+        "updateTime": "16:30",
+        "message": "Arrived at Processing Facility VANCOUVER - CA",
+        "location": "VANCOUVER - CANADA",
+        "description": "ALBUM-1030YBFLPH",
+        "audio": "MET_GALA_YPS.m4a"
+      }
+    ]
+  },
+  {
+    "date": "Wednesday, March 11, 2020",
+    "shortDate": "Wed, Mar 11",
+    "updates": [
+      {
+        "updateNumber": 9,
+        "updateTime": "09:38",
+        "message": "Clearance complete at VANCOUVER - CA",
+        "location": "VANCOUVER - CANADA",
+        "description": "ALBUM-1030YBFLPH",
+        "audio": "OK_BABY_YPS.m4a"
+      },
+      {
+        "updateNumber": 10,
+        "updateTime": "10:15",
+        "message": "Out for Delivery VANCOUVER - CA",
+        "location": "VANCOUVER - CANADA",
+        "description": "ALBUM-1030YBFLPH",
+        "audio": "DARLING_YPS.m4a"
+      }
+    ]
+  }
 ]

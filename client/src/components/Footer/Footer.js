@@ -6,7 +6,7 @@ function Footer() {
         <div className={classes.footer}>
             <div className={classes.credit}>
                 <p>
-                    conceptualized by
+                    by
                 </p>
                 <p>
                     <a href="https://www.instagram.com/yukithedogman/?hl=en" target="_blank" rel="noopener noreferrer" >
