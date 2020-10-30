@@ -20,7 +20,7 @@ function Tracking() {
     const tkn = 'o3V^E1TpG*cItl0'
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/posts', { headers: { 'Authorization': `Bearer ${tkn}` } })
+        fetch('https://yuki-postal-service.herokuapp.com/api/posts', { headers: { 'Authorization': `Bearer ${tkn}` } })
             .then(res => res.json())
             .then(posts => {
                 setPosts(posts)
@@ -33,7 +33,7 @@ function Tracking() {
             const samples = {}
             posts.forEach(post => {
                 post.updates.forEach(update => {
-                    const url = `http://localhost:5000/api/audio/${update._id}`
+                    const url = `https://yuki-postal-service.herokuapp.com/api/audio/${update._id}`
                     const sample = makeSample(url, update.audio)
                     samples[update.audio] = sample
                 })

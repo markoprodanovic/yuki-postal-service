@@ -13,7 +13,7 @@ const root = path.join(__dirname, 'client', 'build')
 
 // AUTHENTICATION
 const passport = require('passport'),
-  BearerStrategy = require('passport-http-bearer').Strategy
+BearerStrategy = require('passport-http-bearer').Strategy
 
 // DOTENV
 const dotenv = require('dotenv')
